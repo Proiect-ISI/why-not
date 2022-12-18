@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.whynot.whynotbackend.WhyNotBackendApplicationTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.868 s - in com.whynot.whynotbackend.WhyNotBackendApplicationTests

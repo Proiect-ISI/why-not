@@ -1,1 +1,6 @@
+service\RestaurantServiceImpl.class
+repository\RestaurantRespository.class
 com\whynot\whynotbackend\WhyNotBackendApplication.class
+controller\RestaurantController.class
+service\RestaurantService.class
+model\Restaurant.class
