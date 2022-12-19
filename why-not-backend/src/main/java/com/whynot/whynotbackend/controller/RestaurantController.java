@@ -1,6 +1,7 @@
 package com.whynot.whynotbackend.controller;
 
 import com.whynot.whynotbackend.model.Restaurant;
+import com.whynot.whynotbackend.repository.RestaurantRespository;
 import com.whynot.whynotbackend.service.RestaurantService;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,14 +13,17 @@ import java.util.Optional;
 public class RestaurantController {
 
     private final RestaurantService restaurantService;
+    private final RestaurantRespository restaurantRespository;
 
-    public RestaurantController(RestaurantService restaurantService) {
+    public RestaurantController(RestaurantService restaurantService,
+                                RestaurantRespository restaurantRespository) {
         this.restaurantService = restaurantService;
+        this.restaurantRespository = restaurantRespository;
     }
 
-    @GetMapping("/country/{country}")
-    public List<Restaurant> findByCountry(@PathVariable("country") String country) {
-        return restaurantService.getRestaurantsByCountry(country);
+    @GetMapping("/specific/{foodSpecific}")
+    public List<Restaurant> findBySpecific(@PathVariable("foodSpecific") String foodSpecfic) {
+        return restaurantService.getRestaurantsByFoodSpecific(foodSpecfic);
     }
 
     @PostMapping("/update")
@@ -31,7 +35,7 @@ public class RestaurantController {
 
         if(restaurantDB.isPresent()) {
             Restaurant toSaveRestaurant = restaurantDB.get();
-            toSaveRestaurant.setCountry(restaurant.getCountry());
+            toSaveRestaurant.setFoodSpecific(restaurant.getFoodSpecific());
             toSaveRestaurant.setName(restaurant.getName());
             return restaurantService.saveRestaurant(toSaveRestaurant);
         }
