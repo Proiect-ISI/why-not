@@ -28,4 +28,9 @@ public class UserServiceImpl implements UserService{
     public String findPasswordByEmail(String email) {
         return userRepository.findPasswordByEmail(email);
     }
+
+    @Override
+    public User findByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
 }

@@ -11,4 +11,6 @@ public interface UserService {
     User saveUser(User user);
 
     String findPasswordByEmail(String email);
+
+    User findByEmail(String email);
 }

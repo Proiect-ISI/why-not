@@ -55,13 +55,13 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    public String loginUser(@RequestBody User user) {
+    public User loginUser(@RequestBody User user) {
         String password = userService.findPasswordByEmail(user.getEmail());
 
         if(password != null && password.equals(user.getPassword())) {
-            return "Validated";
+            return userService.findByEmail(user.getEmail());
         } else {
-            return "Denied";
+            return null;
         }
     }
 
