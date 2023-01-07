@@ -1,6 +1,7 @@
 package com.whynot.whynotbackend.controller;
 
 import com.whynot.whynotbackend.model.Restaurant;
+import com.whynot.whynotbackend.model.User;
 import com.whynot.whynotbackend.repository.RestaurantRespository;
 import com.whynot.whynotbackend.service.RestaurantService;
 import org.springframework.web.bind.annotation.*;
@@ -39,6 +40,7 @@ public class RestaurantController {
             toSaveRestaurant.setName(restaurant.getName());
             return restaurantService.saveRestaurant(toSaveRestaurant);
         }
+
         return restaurantService.saveRestaurant(restaurant);
     }
 }

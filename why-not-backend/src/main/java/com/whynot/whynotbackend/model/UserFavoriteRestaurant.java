@@ -1,9 +1,6 @@
 package com.whynot.whynotbackend.model;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIdentityReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 
 @Entity
@@ -17,13 +14,13 @@ public class UserFavoriteRestaurant {
     @ManyToOne
     @JoinColumn(name = "user_id")
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id", scope = User.class)
-    @JsonIdentityReference(alwaysAsId = true)
+    @JsonIgnoreProperties(value = {"favoriteRestaurants", "ownedRestaurants"})
     private User user;
 
     @ManyToOne
     @JoinColumn(name = "restaurant_id")
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id", scope = Restaurant.class)
-    @JsonIdentityReference(alwaysAsId = true)
+    @JsonIgnoreProperties({"owner"})
     private Restaurant restaurant;
 
     public UserFavoriteRestaurant(Integer id, User user, Restaurant restaurant) {
