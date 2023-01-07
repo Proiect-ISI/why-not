@@ -7,9 +7,9 @@ import java.util.Optional;
 
 public interface RestaurantService {
 
-    List<Restaurant> getRestaurantsByCountry(String country);
+    List<Restaurant> getRestaurantsByFoodSpecific(String foodSpecific);
 
     Restaurant saveRestaurant(Restaurant restaurant);
 
-    Optional<Restaurant> findById(int id);
+    Optional<Restaurant> findById(Integer id);
 }

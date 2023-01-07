@@ -17,8 +17,8 @@ public class RestaurantServiceImpl implements RestaurantService{
     }
 
     @Override
-    public List<Restaurant> getRestaurantsByCountry(String country) {
-        return restaurantRespository.findByCountry(country);
+    public List<Restaurant> getRestaurantsByFoodSpecific(String foodSpecific) {
+        return restaurantRespository.findByFoodSpecific(foodSpecific);
     }
 
     @Override
@@ -27,7 +27,7 @@ public class RestaurantServiceImpl implements RestaurantService{
     }
 
     @Override
-    public Optional<Restaurant> findById(int id) {
+    public Optional<Restaurant> findById(Integer id) {
         return restaurantRespository.findById(id);
     }
 }

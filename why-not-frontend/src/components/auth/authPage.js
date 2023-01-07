@@ -10,7 +10,14 @@ import Images from '../../constants/Images';
 
 export default function AuthPage() {
   const [basicActive, setBasicActive] = useState('tabLogin');
-  const [basicModal, setBasicModal] = useState(false);
+  const [forgotPasswordModal, setForgotPasswordModal] = useState(false)
+  const [registerClientModal, setRegisterClientModal] = useState(false)
+  const [registerManagerModal, setRegisterManagerModal] = useState(false)
+
+
+  const toggleForgotPasswordModal = () => setForgotPasswordModal(!forgotPasswordModal);
+  const toggleRegisterClientModal = () => setRegisterClientModal(!registerClientModal)
+  const toggleRegisterManagerModal = () => setRegisterManagerModal(!registerManagerModal)
 
   const handleBasicClick = (value) => {
     if (value === basicActive) {
@@ -20,9 +27,8 @@ export default function AuthPage() {
     setBasicActive(value);
   };
 
-  const toggleShow = () => setBasicModal(!basicModal);
-
   return (
+    <>
     <div style={{
       backgroundImage: `url(${Images.background})`, backgroundRepeat: "no-repeat", backgroundSize: 'cover', height: '100vh',
       textAlign: '-webkit-center', display: 'flex', justifyContent: 'center', alignItems: 'center',
@@ -60,25 +66,8 @@ export default function AuthPage() {
                 </MDBCol>
               </MDBRow>
               <MDBRow center style={{ paddingTop: '20px' }}>
-                <p><a className="pe-auto link-color" style={{ cursor: 'pointer' }} onClick={toggleShow}>Forgot password?</a></p>
-                <MDBModal show={basicModal} setShow={setBasicModal} tabIndex='-1'>
-                  <MDBModalDialog centered>
-                    <MDBModalContent>
-                      <MDBModalHeader className='d-flex justify-content-center align-items-center my-3' >
-                        <MDBModalTitle style={{ paddingLeft: '160px' }}>Reset password</MDBModalTitle>
-                        <MDBBtn className='btn-close' color='none' onClick={toggleShow}></MDBBtn>
-                      </MDBModalHeader>
-                      <MDBModalBody>
-                        <MDBCol size='10'>
-                          <MDBInput label='Email' id='emailForgotPassword' type='email' />
-                        </MDBCol>
-                      </MDBModalBody>
-                      <MDBModalFooter>
-                        <MDBBtn rounded className='purple-btn'>Reset</MDBBtn>
-                      </MDBModalFooter>
-                    </MDBModalContent>
-                  </MDBModalDialog>
-                </MDBModal>
+                <p><a className="pe-auto link-color" style={{ cursor: 'pointer' }} onClick={toggleForgotPasswordModal}>Forgot password?</a></p>
+
               </MDBRow>
             </MDBTabsPane>
             <MDBTabsPane show={basicActive === 'tabRegister'}>
@@ -89,7 +78,10 @@ export default function AuthPage() {
               </MDBCol>
               <MDBRow center>
                 <MDBCol>
-                  <MDBBtn rounded className='purple-btn mx-2'>Register</MDBBtn>
+                  <MDBBtn rounded className='purple-btn mx-2' onClick={toggleRegisterClientModal}>Register client</MDBBtn>
+                </MDBCol>
+                <MDBCol>
+                  <MDBBtn rounded className='purple-btn mx-2' onClick={toggleRegisterManagerModal}>Register manager</MDBBtn>
                 </MDBCol>
               </MDBRow>
             </MDBTabsPane>
@@ -97,5 +89,63 @@ export default function AuthPage() {
         </MDBCardBody>
       </MDBCard>
     </div >
+
+    <MDBModal show={forgotPasswordModal} setShow={setForgotPasswordModal} tabIndex='-1'>
+      <MDBModalDialog centered>
+        <MDBModalContent>
+          <MDBModalHeader className='d-flex justify-content-center align-items-center my-3' >
+            <MDBModalTitle style={{ paddingLeft: '160px' }}>Reset password</MDBModalTitle>
+            <MDBBtn className='btn-close' color='none' onClick={toggleForgotPasswordModal}></MDBBtn>
+          </MDBModalHeader>
+          <MDBModalBody>
+            <MDBCol size='10'>
+              <MDBInput label='Email' id='emailForgotPassword' type='email' />
+            </MDBCol>
+          </MDBModalBody>
+          <MDBModalFooter>
+            <MDBBtn rounded className='purple-btn'>Reset</MDBBtn>
+          </MDBModalFooter>
+        </MDBModalContent>
+      </MDBModalDialog>
+    </MDBModal>
+
+    <MDBModal show={registerClientModal} setShow={setRegisterClientModal} tabIndex='-1'>
+      <MDBModalDialog centered>
+        <MDBModalContent>
+          <MDBModalHeader className='d-flex justify-content-center align-items-center my-3' >
+            <MDBModalTitle style={{ paddingLeft: '160px' }}>Register as client</MDBModalTitle>
+            <MDBBtn className='btn-close' color='none' onClick={toggleRegisterClientModal}></MDBBtn>
+          </MDBModalHeader>
+          <MDBModalBody>
+            <MDBCol size='10'>
+              <MDBInput label='Email' id='emailForgotPassword' type='email' />
+            </MDBCol>
+          </MDBModalBody>
+          <MDBModalFooter>
+            <MDBBtn rounded className='purple-btn'>Register</MDBBtn>
+          </MDBModalFooter>
+        </MDBModalContent>
+      </MDBModalDialog>
+    </MDBModal>
+
+    <MDBModal show={registerManagerModal} setShow={setRegisterManagerModal} tabIndex='-1'>
+      <MDBModalDialog centered>
+        <MDBModalContent>
+          <MDBModalHeader className='d-flex justify-content-center align-items-center my-3' >
+            <MDBModalTitle style={{ paddingLeft: '150px' }}>Register as manager</MDBModalTitle>
+            <MDBBtn className='btn-close' color='none' onClick={toggleRegisterManagerModal}></MDBBtn>
+          </MDBModalHeader>
+          <MDBModalBody>
+            <MDBCol size='10'>
+              <MDBInput label='Email' id='emailForgotPassword' type='email' />
+            </MDBCol>
+          </MDBModalBody>
+          <MDBModalFooter>
+            <MDBBtn rounded className='purple-btn'>Register</MDBBtn>
+          </MDBModalFooter>
+        </MDBModalContent>
+      </MDBModalDialog>
+    </MDBModal>
+  </>
   );
 }

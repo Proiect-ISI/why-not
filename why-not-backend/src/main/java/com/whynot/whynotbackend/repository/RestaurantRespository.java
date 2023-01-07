@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface RestaurantRespository extends JpaRepository<Restaurant, Integer> {
 
-    // custom query to search to blog post by title or content
-    List<Restaurant> findByCountry(String country);
+    List<Restaurant> findByFoodSpecific(String foodSpecific);
+
 }
