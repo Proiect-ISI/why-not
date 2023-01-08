@@ -1,10 +1,7 @@
 package com.whynot.whynotbackend.model;
 
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIdentityReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 
 @Entity
@@ -29,7 +26,7 @@ public class Restaurant {
     @ManyToOne
     @JoinColumn(name = "owner_id")
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id", scope = User.class)
-    @JsonIdentityReference(alwaysAsId = true)
+    @JsonIgnoreProperties(value = {"favoriteRestaurants", "ownedRestaurants"})
     private User owner;
 
     public User getOwner() {

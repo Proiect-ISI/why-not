@@ -1,11 +1,13 @@
 package com.whynot.whynotbackend.model;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 
 import java.util.List;
 
 @Entity
 @Table(name = "users")
+@Builder
 public class User {
 
     @Id
