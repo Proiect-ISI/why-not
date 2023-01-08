@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/user")
+@CrossOrigin(origins = "http://localhost:3000")
 public class UserController {
 
     private final UserRepository userRepository;
@@ -54,7 +55,7 @@ public class UserController {
         return userService.saveUser(user);
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public User loginUser(@RequestBody User user) {
         String password = userService.findPasswordByEmail(user.getEmail());
 
