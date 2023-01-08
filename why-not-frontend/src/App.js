@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import MainPage from './components/mainPage/mainPage';
-import Map from './components/map/map';
+import Map from './components/map/map.js';
 import './App.css';
 import React from 'react';
 
