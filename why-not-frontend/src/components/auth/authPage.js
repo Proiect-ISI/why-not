@@ -195,7 +195,7 @@ export default function AuthPage() {
               </MDBTabsPane>
               <MDBTabsPane show={basicActive === 'tabRegister'}>
                 <MDBCol size='10'>
-                  <MDBInput label='Email' id='emailRegister' type='email' onChange={updateEmailRegister} />
+                  <MDBInput label='Email' id='emailRegister' type='email' onChange={updateEmailRegister}/>
                   <MDBInput label='Password' id='passwordRegister' type='password' onChange={updatePasswordRegister} />
                   <MDBInput label='Retype password' id='retypePasswordRegister' type='password' onChange={updateRetypePasswordRegister} />
                 </MDBCol>

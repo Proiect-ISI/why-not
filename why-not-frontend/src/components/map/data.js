@@ -22,6 +22,30 @@ export const restaurants = [
         latitude: 44.443395,
         longitude: 26.075566,
         owner: 2
+    },
+    {
+        id: 3,
+        name: "China",
+        foodSpecific: "Chinese",
+        latitude: 44.423395,
+        longitude: 26.095566,
+        owner: 2
+    },
+    {
+        id: 3,
+        name: "China",
+        foodSpecific: "Chinese",
+        latitude: 44.433395,
+        longitude: 26.055566,
+        owner: 2
+    },
+    {
+        id: 3,
+        name: "China",
+        foodSpecific: "Chinese",
+        latitude: 44.413395,
+        longitude: 26.105566,
+        owner: 2
     }
 ]
 

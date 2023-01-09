@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import MainPage from './components/mainPage/mainPage';
 import AuthPage from './components/auth/authPage'
-import Map from './components/map/map';
+import MapPage from './components/map/mapPage';
 import './App.css';
 import React from 'react';
 
@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route path='/' element={<MainPage />} />
         <Route path='/auth' element={<AuthPage />} />
-        <Route path='/map' element={<Map />} />
+        <Route path='/map' element={<MapPage />} />
       </Routes>
     </React.Fragment>
   );
