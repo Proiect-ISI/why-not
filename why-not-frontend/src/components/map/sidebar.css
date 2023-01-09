@@ -1,0 +1,78 @@
+.sidebar {
+    margin-right: auto !important;
+    width: 33.33vw !important;
+    height: 100vh !important;
+    background-color: white;
+    padding: 0!important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.restaurant {
+    background-color: rgba(245, 245, 220, 0.5);
+}
+
+.r-data {
+    width: 100%;
+    background-color: rgba(245, 245, 220, 0.5);
+    padding: 3px 5px 4px 5px;
+    border-bottom: 1px solid rgba(22, 22, 22, 0.1);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.r-profile {
+    background-color: magenta;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.restaurant:hover {
+    background-color: rgba(245, 245, 220, 0.8);
+}
+
+.r-title {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.r-type {
+    font-size: 12px;
+    color: rgba(100, 100, 100, 0.9);
+}
+
+.r-actions button.delete {
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+    /*border: none;*/
+    background: url('../../assets/bin.png') repeat 0 0;
+}
+
+.restaurant-list {
+    margin-top: 26px;
+}
+
+.restaurant-list header {
+    font-size: 20px;
+    font-weight: 600;
+    padding-left: 10px;
+    margin-bottom: 10px
+}
+
+.footer {
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+
+.title {
+    font-weight: 600;
+}
+
+.tm {
+    font-size: 10px;
+}
