@@ -1,10 +1,8 @@
 import {useEffect} from 'react';
 import { loadModules } from 'esri-loader';
 import './map.css';
-import { restaurants } from "./data";
 
-export const useCreateMap = (mapRef, favorites) => {
-
+export const useCreateMap = (mapRef, restaurants, favorites) => {
     useEffect( () => {
         let view;
 
